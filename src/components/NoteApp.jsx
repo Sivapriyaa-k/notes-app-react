@@ -19,6 +19,7 @@ export default function NoteApp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("🔥 HANDLE SUBMIT");
     const newError = {
       title: "",
       content: "",
@@ -67,6 +68,8 @@ export default function NoteApp() {
   };
 
   const updateNote = (index) => {
+    console.log("🔥 UPDATE NOTE");
+
     const updatedNotes = notes.map((note, i) =>
       i === index
         ? {
@@ -149,7 +152,8 @@ export default function NoteApp() {
         {isUpdateNotes.isUpdate ? (
           <button
             type="button"
-            onClick={() => {
+            onClick={(e) => {
+               e.preventDefault();
               updateNote(isUpdateNotes.updateId);
             }}
           >
