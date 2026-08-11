@@ -28,7 +28,7 @@ export default function NoteApp() {
     }
 
     console.log(newError);
-    if (formData.content === "") {
+    if (formData.content.trim() === "") {
       newError.content = "Content is required";
     }
     console.log(newError);
@@ -82,6 +82,11 @@ export default function NoteApp() {
     setFilteredNotes(updatedNotes);
 
     setFormData({
+      title: "",
+      content: "",
+    });
+
+    setErr({
       title: "",
       content: "",
     });
