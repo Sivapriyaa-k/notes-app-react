@@ -58,7 +58,7 @@ export default function NoteApp() {
     });
   };
 
-  const editNote = (id) => {
+  const editNote = (index) => {
     console.log(index);
 
     setFormData({
