@@ -103,8 +103,8 @@ export default function NoteApp() {
     });
   };
 
-  const deleteNote = (index) => {
-    const updatedList = notes.filter((expense, i) => index !== i);
+  const deleteNote = (id) => {
+    const updatedList = notes.filter((note) => note.id !== id);
     console.log(updatedList);
     setNotes(updatedList);
     setFilteredNotes(updatedList);
@@ -171,7 +171,7 @@ export default function NoteApp() {
       {filteredNotes &&
         filteredNotes.map((filteredNote, index) => {
           return (
-            <div key={index}>
+            <div key={filteredNote.id}>
               <h2>{filteredNote.title}</h2>
               <p>{filteredNote.content}</p>
               <button onClick={() => editNote(filteredNote.id)}>Edit</button>
