@@ -58,25 +58,24 @@ export default function NoteApp() {
     });
   };
 
-  const editNote = (index) => {
+  const editNote = (id) => {
     console.log(index);
-
+    const note = notes.find((note) => note.id === id);
     setFormData({
-      title: notes[index].title,
-      content: notes[index].content,
+      title: note.title,
+      content: note.content,
     });
 
     setIsUpdateNotes({
       isUpdate: true,
-      updateId: index,
+      updateId: id,
     });
   };
 
-  const updateNote = (index) => {
+  const updateNote = (id) => {
     console.log("🔥 UPDATE NOTE");
-
     const updatedNotes = notes.map((note, i) =>
-      i === index
+      note.id === id
         ? {
             ...note,
             title: formData.title,
