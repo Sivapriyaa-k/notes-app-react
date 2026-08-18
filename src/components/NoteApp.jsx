@@ -42,6 +42,11 @@ export default function NoteApp() {
       title: "",
       content: "",
     });
+    const newNote = {
+      id: Date.now(),
+      title:formData.title,
+      content:formData.content
+    }
 
     console.log(formData);
     setNotes([...notes, formData]);
