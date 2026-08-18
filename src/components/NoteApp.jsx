@@ -44,13 +44,13 @@ export default function NoteApp() {
     });
     const newNote = {
       id: Date.now(),
-      title:formData.title,
-      content:formData.content
-    }
+      title: formData.title,
+      content: formData.content,
+    };
 
     console.log(formData);
-    setNotes([...notes, formData]);
-    setFilteredNotes([...notes, formData]);
+    setNotes([...notes, newNote]);
+    setFilteredNotes([...notes, newNote]);
 
     setFormData({
       title: "",
@@ -58,7 +58,7 @@ export default function NoteApp() {
     });
   };
 
-  const editNote = (index) => {
+  const editNote = (id) => {
     console.log(index);
 
     setFormData({
@@ -158,7 +158,7 @@ export default function NoteApp() {
           <button
             type="button"
             onClick={(e) => {
-               e.preventDefault();
+              e.preventDefault();
               updateNote(isUpdateNotes.updateId);
             }}
           >
@@ -175,8 +175,10 @@ export default function NoteApp() {
             <div key={index}>
               <h2>{filteredNote.title}</h2>
               <p>{filteredNote.content}</p>
-              <button onClick={() => editNote(index)}>Edit</button>
-              <button onClick={() => deleteNote(index)}>Delete</button>
+              <button onClick={() => editNote(filteredNote.id)}>Edit</button>
+              <button onClick={() => deleteNote(filteredNote.id)}>
+                Delete
+              </button>
             </div>
           );
         })}
